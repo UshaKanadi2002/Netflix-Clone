@@ -1,3 +1,5 @@
+const authroutes = require("./routes/auth");
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -7,6 +9,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth", authRoutes);
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=> console.log("Connted to MongoDB"))
